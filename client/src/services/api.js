@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://taskflow-apii-iiz6.onrender.com/",
+  baseURL: "https://taskflow-apii-iiz6.onrender.com/api",
 });
 
 API.interceptors.request.use((config) => {
@@ -13,6 +13,7 @@ API.interceptors.request.use((config) => {
 
   return config;
 });
+
 export const updateTaskStatus = async (id, status) => {
   const { data } = await API.put(`/tasks/${id}`, {
     status,
@@ -20,8 +21,10 @@ export const updateTaskStatus = async (id, status) => {
 
   return data.task;
 };
+
 export const clearAllTasks = async () => {
   const { data } = await API.delete("/tasks/clear");
   return data;
 };
+
 export default API;
