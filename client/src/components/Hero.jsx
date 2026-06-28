@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 function Hero() {
   return (
     <section className="text-center mt-24 px-6">
@@ -9,9 +10,12 @@ function Hero() {
         AI-powered task management for students and professionals.
       </p>
 
-      <button className="mt-8 bg-cyan-500 px-8 py-4 rounded-xl">
-        Get Started
-      </button>
+      <Link
+  to="/login"
+  className="bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-4 rounded-xl font-bold transition inline-block mt-8"
+>
+  Get Started
+</Link>
     </section>
   );
 }
